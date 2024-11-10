@@ -19,7 +19,9 @@ class AuthService {
 
   login(idToken: string) {
     // TODO: set the token to localStorage
+    localStorage.setItem('id_token', idToken);
     // TODO: redirect to the home page
+    window.location.assign('/');
   }
 
   logout() {
