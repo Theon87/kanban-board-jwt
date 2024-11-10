@@ -13,6 +13,9 @@ class AuthService {
   
   isTokenExpired(token: string) {
     // TODO: return a value that indicates if the token is expired
+    const decodedToken = jwtDecode<JwtPayload>(token);
+    const currentTime = Date.now() / 1000;
+    return decodedToken.exp ? currentTime > decodedToken.exp : false;
   }
 
   getToken(): string {
